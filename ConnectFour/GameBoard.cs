@@ -78,5 +78,10 @@ namespace ConnectFour
 
             aryGameBox[c, 5].BackColor = Color.Blue;
         }
+
+        private void test()
+        {
+            //this is a test method
+        }
     }
 }
