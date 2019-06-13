@@ -19,6 +19,7 @@ namespace ConnectFour
 {
     public partial class GameBoard : Form
     {
+        
         private PictureBox[,] aryGameBox = new PictureBox[7, 6];
         private Button[] aryButtons = new Button[7];
         private int intPlayerTurn = 1;
@@ -100,12 +101,16 @@ namespace ConnectFour
             }
         }
 
-        private void test()
+        private void mnuExitOnClick(object sender, EventArgs e)
         {
-            //this is a test method
-            //more test stuff
-            //alfjniufneiu
-            //weofweuib
+            Application.Exit();
+        }
+
+        private void mnuResetOnClick(object sender, EventArgs e) {
+            foreach(PictureBox box in aryGameBox)
+            {
+                box.BackColor = Color.Transparent;
+            }
         }
     }
 }
