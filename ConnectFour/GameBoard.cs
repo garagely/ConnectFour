@@ -19,8 +19,9 @@ namespace ConnectFour
 {
     public partial class GameBoard : Form
     {
-        PictureBox[,] aryGameBox = new PictureBox[7, 6];
-        Button[] aryButtons = new Button[7];
+        private PictureBox[,] aryGameBox = new PictureBox[7, 6];
+        private Button[] aryButtons = new Button[7];
+        private int intPlayerTurn = 1;
         public GameBoard()
         { 
             InitializeComponent();
@@ -28,13 +29,14 @@ namespace ConnectFour
             {
                 for(int c = 0; c < 6; c++)
                 {
-                    aryGameBox[r,c] = new PictureBox()
+                    aryGameBox[r, c] = new PictureBox()
                     {
                         Location = new Point(r * 100 + 100, c * 100 + 100),
                         Width = 100,
                         Height = 100,
                         Visible = true,
-                        BorderStyle = BorderStyle.FixedSingle
+                        BorderStyle = BorderStyle.FixedSingle,
+                        BackColor = Color.Transparent
                     };
                     aryGameBox[r, c].BringToFront();
                     this.Controls.Add(aryGameBox[r, c]);
@@ -62,6 +64,16 @@ namespace ConnectFour
         private void btnDropPieceOnClick(object sender, EventArgs e)   
         {
             Button btnPressed = (Button)sender;
+            Color color = Color.Transparent;
+
+            if(intPlayerTurn == 1)
+            {
+                color = Color.Blue;
+            }else if(intPlayerTurn == 2)
+            {
+                color = Color.Red;
+            }
+            
             //get column based on button pressed.
             int c = Array.IndexOf(aryButtons, btnPressed);
 
@@ -69,14 +81,32 @@ namespace ConnectFour
 
             for (int r = 0; r < 5; r++)
             {
-                aryGameBox[c, r].BackColor = Color.Blue;
-                if (!(aryGameBox[c, r+1].BackColor == Color.Blue))
+                aryGameBox[c, r].BackColor = color;
+              
+                if ((aryGameBox[c, r+1].BackColor == Color.Transparent))
                 {
-                    aryGameBox[c, r].BackColor = Color.Transparent;
+                    if (r + 1 == 5)
+                    {
+                        aryGameBox[c, r].BackColor = Color.Transparent;
+                        aryGameBox[c, r+1].BackColor = color;
+                    }
+                    else
+                    {
+                        aryGameBox[c, r].BackColor = Color.Transparent;
+                    }
+                    
                 }
             }
 
-            aryGameBox[c, 5].BackColor = Color.Blue;
+            //aryGameBox[c, 5].BackColor = color;
+            if(intPlayerTurn == 1)
+            {
+                intPlayerTurn = 2;
+            }
+            else
+            {
+                intPlayerTurn = 1;
+            }
         }
 
         private void test()
