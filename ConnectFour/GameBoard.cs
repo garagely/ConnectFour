@@ -79,22 +79,13 @@ namespace ConnectFour
 
             //aryGameBox[0, 2].BackColor = Color.Blue;
 
-            for (int r = 0; r < 5; r++)
+            for (int r = 5; r >=0; r--)
             {
-                aryGameBox[c, r].BackColor = color;
-              
-                if ((aryGameBox[c, r+1].BackColor == Color.Transparent))
+                if(aryGameBox[c,r].BackColor == Color.Transparent)
                 {
-                    if (r + 1 == 5)
-                    {
-                        aryGameBox[c, r].BackColor = Color.Transparent;
-                        aryGameBox[c, r+1].BackColor = color;
-                    }
-                    else
-                    {
-                        aryGameBox[c, r].BackColor = Color.Transparent;
-                    }
-                    
+                    aryGameBox[c, r].BackColor = color;
+                    //break out of loop when it finds an empty square
+                    break;
                 }
             }
 
