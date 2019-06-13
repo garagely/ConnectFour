@@ -26,6 +26,8 @@ namespace ConnectFour
         public GameBoard()
         { 
             InitializeComponent();
+            picPlayerTurn.BackColor = Color.Blue;
+            lblPLayerTurn.Text = "Player 1 Turn";
             for(int r=0; r<7; r++)
             {
                 for(int c = 0; c < 6; c++)
@@ -86,19 +88,35 @@ namespace ConnectFour
                 {
                     aryGameBox[c, r].BackColor = color;
                     //break out of loop when it finds an empty square
+                    if (intPlayerTurn == 1)
+                    {
+                        intPlayerTurn = 2;
+                        picPlayerTurn.BackColor = Color.Red;
+                        lblPLayerTurn.Text = "Player 2 Turn";
+                    }
+                    else
+                    {
+                        intPlayerTurn = 1;
+                        picPlayerTurn.BackColor = Color.Blue;
+                        lblPLayerTurn.Text = "Player 1 Turn";
+                    }
                     break;
                 }
             }
 
             //aryGameBox[c, 5].BackColor = color;
-            if(intPlayerTurn == 1)
-            {
-                intPlayerTurn = 2;
-            }
-            else
-            {
-                intPlayerTurn = 1;
-            }
+            //if(intPlayerTurn == 1)
+            //{
+            //    intPlayerTurn = 2;
+            //    picPlayerTurn.BackColor = Color.Red;
+            //    lblPLayerTurn.Text = "Player 2 Turn";
+            //}
+            //else
+            //{
+            //    intPlayerTurn = 1;
+            //    picPlayerTurn.BackColor = Color.Blue;
+            //    lblPLayerTurn.Text = "Player 1 Turn";
+            //}
         }
 
         private void mnuExitOnClick(object sender, EventArgs e)
@@ -110,6 +128,9 @@ namespace ConnectFour
             foreach(PictureBox box in aryGameBox)
             {
                 box.BackColor = Color.Transparent;
+                intPlayerTurn = 1;
+                picPlayerTurn.BackColor = Color.Blue;
+                lblPLayerTurn.Text = "Player 1 Turn";
             }
         }
     }

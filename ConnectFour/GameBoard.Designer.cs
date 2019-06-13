@@ -33,7 +33,10 @@
             this.resetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.picPlayerTurn = new System.Windows.Forms.PictureBox();
+            this.lblPLayerTurn = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picPlayerTurn)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -42,7 +45,7 @@
             this.toolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(884, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(984, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -59,33 +62,53 @@
             // resetToolStripMenuItem
             // 
             this.resetToolStripMenuItem.Name = "resetToolStripMenuItem";
-            this.resetToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.resetToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
             this.resetToolStripMenuItem.Text = "Reset";
             this.resetToolStripMenuItem.Click += new System.EventHandler(this.mnuResetOnClick);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(99, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.mnuExitOnClick);
+            // 
+            // picPlayerTurn
+            // 
+            this.picPlayerTurn.Location = new System.Drawing.Point(852, 60);
+            this.picPlayerTurn.Name = "picPlayerTurn";
+            this.picPlayerTurn.Size = new System.Drawing.Size(100, 100);
+            this.picPlayerTurn.TabIndex = 1;
+            this.picPlayerTurn.TabStop = false;
+            // 
+            // lblPLayerTurn
+            // 
+            this.lblPLayerTurn.AutoSize = true;
+            this.lblPLayerTurn.Location = new System.Drawing.Point(866, 163);
+            this.lblPLayerTurn.Name = "lblPLayerTurn";
+            this.lblPLayerTurn.Size = new System.Drawing.Size(70, 13);
+            this.lblPLayerTurn.TabIndex = 2;
+            this.lblPLayerTurn.Text = "Player 1 Turn";
             // 
             // GameBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 761);
+            this.ClientSize = new System.Drawing.Size(984, 761);
+            this.Controls.Add(this.lblPLayerTurn);
+            this.Controls.Add(this.picPlayerTurn);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "GameBoard";
             this.Text = "Attach 4";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picPlayerTurn)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -98,6 +121,8 @@
         private System.Windows.Forms.ToolStripMenuItem resetToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.PictureBox picPlayerTurn;
+        private System.Windows.Forms.Label lblPLayerTurn;
     }
 }
 
